@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="icon" type="image/png" href="./favicon.png" />
     <base href=".">
-    <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="favicon.svg" /> -->
+    <meta charset="UTF-8" /
     <link rel="stylesheet" href="./style.css">
     <script type="module" src="./main.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WebRTC Demo</title>
   </head>
   <body>
-    <div class="videos">
+    <!-- <div class="videos">
       <span>
         <h3>Local Stream</h3>
         <video id="localVideo" autoplay playsinline></video>
@@ -19,33 +19,22 @@
         <h3>Remote Stream</h3>
         <video id="remoteVideo" autoplay playsinline></video>
       </span>
-    </div>
-    <!-- <h2>1. Start your Webcam</h2>
+    </div> -->
 
-    <button id="webcamButton">Start webcam</button>
-    <h2>2. Create a new Call</h2>
-    <button id="callButton" disabled>Create Call (offer)</button>
-
-    <h2>3. Join a Call</h2>
-    <p>Answer the call from a different browser window or device</p>
-    
-    <input id="callInput" />
-    <button id="answerButton" disabled>Answer</button>
-
-    <h2>4. Hangup</h2>
-
-    <button id="hangupButton" disabled>Hangup</button> -->
-
-    <textarea id="localInfo" cols="80" rows="20"></textarea>
-    <h2>local</h2>
     <button id="start">START</button>
     <h2>  </h2>
+    <h2>local</h2>
+    <textarea id="localInfo" cols="80" rows="16"></textarea>
+    <button id="listen">LISTEN</button>
 
-    <textarea id="remoteInfo" cols="80" rows="20"></textarea>
+    </br>
+
     <h2>remote</h2>
+    <textarea id="remoteInfo" cols="80" rows="16"></textarea>
+    <button id="connect">CONNECT</button>
 
-    <button id="connect" disabled>CONNECT</button>
-    <h2 id="log">  </h2>
+    
+    <h5 id="log">   </h2>
 
   </body>
 </html>
