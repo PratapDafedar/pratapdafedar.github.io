@@ -3,6 +3,7 @@ const localVideo = document.getElementById('localVideo');
 const remoteVideo = document.getElementById('remoteVideo');
 const localInfoBox = document.getElementById('localInfo');
 const remoteInfoBox = document.getElementById('remoteInfo');
+const chatBox = document.getElementById('chat');
 
 const startButton = document.getElementById('start');
 const listenButton = document.getElementById('listen');
@@ -57,7 +58,7 @@ listenButton.onclick = async () => {
     lc.dc = e.channel;
     lc.dc.onopen = e => log("local desc created successfully!")
     lc.dc.onmessage = e => {
-      console.log("new message from client: " + e.data);
+      log("msg: " + e.data);
     }
   }
   
@@ -79,15 +80,14 @@ connectButton.onclick = async () => {
     lc.dc = e.channel;
     lc.dc.onopen = e => log("local desc created successfully!")
     lc.dc.onmessage = e => {
-      console.log("new message from client: " + e.data);
+      log("msg: " + e.data);
     }
   }
 }
 
 
 sendButton.onclick = async () => {
-  var random = Math.floor(Math.random() * 100);
-  var msg = "message:" + random;
+  var msg = chatBox.value;
   lc.dc.send(msg);
 }
 
