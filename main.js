@@ -7,6 +7,7 @@ const remoteInfoBox = document.getElementById('remoteInfo');
 const startButton = document.getElementById('start');
 const listenButton = document.getElementById('listen');
 const connectButton = document.getElementById('connect');
+const sendButton = document.getElementById('send');
 
 const logLabel = document.getElementById('log');
 function log(message) {
@@ -71,3 +72,11 @@ connectButton.onclick = async () => {
   var answer = JSON.parse(remoteInfoBox.value);
   lc.setRemoteDescription(answer);
 }
+
+
+sendButton.onclick = async () => {
+  var random = Math.floor(Math.random() * 100);
+  var msg = "message:" + random;
+  lc.dc.send(msg);
+}
+
