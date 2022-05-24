@@ -19,7 +19,7 @@ const servers = {
   iceServers: [
     {
       //urls: ['stun:stun1.l.google.com:19302', 'stun:stun2.l.google.com:19302', 'stun:stun.gmx.net:3478', 'stun:stun.l.google.com:19302', 'stun:stun3.l.google.com:19302', 'stun:openrelay.metered.ca:80'],
-      urls: ['stun:stun1.l.google.com:19302', 'stun:openrelay.metered.ca:80'],
+      urls: ['stun3.l.google.com:19302', 'stun4.l.google.com:19302'],
     },
   ],
   iceCandidatePoolSize: 10,
@@ -30,8 +30,12 @@ const lc = new RTCPeerConnection(servers);
 startButton.onclick = async () => {
   
   const dc = lc.createDataChannel("channel");
+  lc.dc = dc;
+  
   dc.onmessage = e => log("received" + e.data);
-  dc.onopen = e => log("connection opened");
+  dc.onopen = e => {
+    log("connection opened");
+  }
   lc.onicecandidate = e => {
     var newCandidate = JSON.stringify(lc.localDescription);
     localInfoBox.value = newCandidate;
@@ -71,6 +75,13 @@ listenButton.onclick = async () => {
 connectButton.onclick = async () => {
   var answer = JSON.parse(remoteInfoBox.value);
   lc.setRemoteDescription(answer);
+  lc.ondatachannel = e => {
+    lc.dc = e.channel;
+    lc.dc.onopen = e => log("local desc created successfully!")
+    lc.dc.onmessage = e => {
+      console.log("new message from client: " + e.data);
+    }
+  }
 }
 
 
