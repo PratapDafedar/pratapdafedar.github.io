@@ -10,7 +10,7 @@ const connectButton = document.getElementById('connect');
 
 const logLabel = document.getElementById('log');
 function log(message) {
-  logLabel.textContent = message;
+  logLabel.textContent += message + "   <br/>";
   console.log(message);
 }
 
@@ -29,8 +29,8 @@ const lc = new RTCPeerConnection(servers);
 startButton.onclick = async () => {
   
   const dc = lc.createDataChannel("channel");
-  dc.onmessage = e => console.log("received" + e.data);
-  dc.onopen = e => console.log("connection opened");
+  dc.onmessage = e => log("received" + e.data);
+  dc.onopen = e => log("connection opened");
   lc.onicecandidate = e => {
     var newCandidate = JSON.stringify(lc.localDescription);
     localInfoBox.value = newCandidate;
