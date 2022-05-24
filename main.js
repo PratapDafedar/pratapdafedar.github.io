@@ -19,7 +19,7 @@ const servers = {
   iceServers: [
     {
       //urls: ['stun:stun1.l.google.com:19302', 'stun:stun2.l.google.com:19302', 'stun:stun.gmx.net:3478', 'stun:stun.l.google.com:19302', 'stun:stun3.l.google.com:19302', 'stun:openrelay.metered.ca:80'],
-      urls: ['stun3.l.google.com:19302', 'stun4.l.google.com:19302'],
+      urls: ['stun:stun3.l.google.com:19302', 'stun:stun4.l.google.com:19302'],
     },
   ],
   iceCandidatePoolSize: 10,
@@ -31,7 +31,7 @@ startButton.onclick = async () => {
   
   const dc = lc.createDataChannel("channel");
   lc.dc = dc;
-  
+
   dc.onmessage = e => log("received" + e.data);
   dc.onopen = e => {
     log("connection opened");
