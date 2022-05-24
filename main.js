@@ -19,8 +19,22 @@ function log(message) {
 const servers = {
   iceServers: [
     {
-      //urls: ['stun:stun1.l.google.com:19302', 'stun:stun2.l.google.com:19302', 'stun:stun.gmx.net:3478', 'stun:stun.l.google.com:19302', 'stun:stun3.l.google.com:19302', 'stun:openrelay.metered.ca:80'],
-      urls: ['stun:stun3.l.google.com:19302', 'stun:stun4.l.google.com:19302'],
+      urls: "stun:openrelay.metered.ca:80",
+    },
+    {
+      urls: "turn:openrelay.metered.ca:80",
+      username: "openrelayproject",
+      credential: "openrelayproject",
+    },
+    {
+      urls: "turn:openrelay.metered.ca:443",
+      username: "openrelayproject",
+      credential: "openrelayproject",
+    },
+    {
+      urls: "turn:openrelay.metered.ca:443?transport=tcp",
+      username: "openrelayproject",
+      credential: "openrelayproject",
     },
   ],
   iceCandidatePoolSize: 10,
@@ -33,7 +47,7 @@ startButton.onclick = async () => {
   const dc = lc.createDataChannel("channel");
   lc.dc = dc;
 
-  dc.onmessage = e => log("received" + e.data);
+  dc.onmessage = e => log("msg: " + e.data);
   dc.onopen = e => {
     log("connection opened");
   }
