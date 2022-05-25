@@ -1,10 +1,13 @@
 // HTML elements
 const localVideo = document.getElementById('localVideo');
 const remoteVideo = document.getElementById('remoteVideo');
+
+const serverBox = document.getElementById('servers');
 const localInfoBox = document.getElementById('localInfo');
 const remoteInfoBox = document.getElementById('remoteInfo');
 const chatBox = document.getElementById('chat');
 
+const initButton = document.getElementById('init');
 const startButton = document.getElementById('start');
 const listenButton = document.getElementById('listen');
 const connectButton = document.getElementById('connect');
@@ -12,11 +15,11 @@ const sendButton = document.getElementById('send');
 
 const logLabel = document.getElementById('log');
 function log(message) {
-  logLabel.textContent += message + "   <br/>";
+  logLabel.value += message + " \n";
   console.log(message);
 }
 
-const servers = {
+let servers = {
   iceServers: [
     {
       urls: "stun:openrelay.metered.ca:80",
@@ -40,7 +43,18 @@ const servers = {
   iceCandidatePoolSize: 10,
 };
 
-const lc = new RTCPeerConnection(servers);
+let lc = new RTCPeerConnection(servers);
+
+serverBox.value = JSON.stringify(servers, null, 2);
+initButton.onclick = async () => {
+  try {
+    servers = JSON.parse(serverBox.value);
+    lc = new RTCPeerConnection(servers);
+    log("Initialized");
+  } catch (e) {
+    log("Error: " + e);
+  }
+};
 
 startButton.onclick = async () => {
   

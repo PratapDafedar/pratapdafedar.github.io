@@ -22,3 +22,45 @@ video {
   align-items: center;
   justify-content: center;
 }
+
+
+ /* Split the screen in half */
+ .split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+#log {
+  transform: translate(-20%, -10%);
+  height: 150%;
+  width: auto;
+  background: #2c3e50;
+  color: #fff;
+  padding: 1rem;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: rgb(128, 122, 122);
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: rgb(75, 70, 70);
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}

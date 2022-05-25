@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="icon" type="image/png" href="./favicon.png" />
-    <base href=".">
-    <meta charset="UTF-8" /
-    <link rel="stylesheet" href="./style.css">
-    <script type="module" src="./main.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebRTC Demo</title>
-  </head>
-  <body>
-    <!-- <div class="videos">
+
+<head>
+  <link rel="icon" type="image/png" href="./favicon.png" />
+  <base href=".">
+  <meta charset="UTF-8"> 
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./main.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebRTC Demo</title>
+</head>
+
+<body>
+  <!-- <div class="videos">
       <span>
         <h3>Local Stream</h3>
         <video id="localVideo" autoplay playsinline></video>
@@ -21,27 +23,41 @@
       </span>
     </div> -->
 
-    <button id="start">START</button>
-    <h2>  </h2>
-    <h2>local</h2>
-    <textarea id="localInfo" cols="80" rows="10"></textarea>
-    
-  </br>
-  
-  <h2>remote</h2>
-  <button id="listen">LISTEN</button>
-    <textarea id="remoteInfo" cols="80" rows="10"></textarea>
-    <button id="connect">CONNECT</button>
 
-    </br>
-    </br>
-    <div>
-      <textarea id="chat" cols="40" rows="1"></textarea>
-      <button id="send">SEND</button>
+    <div class="split left">
+      <div class="centered">
+        <textarea id="servers" cols="80" rows="14"></textarea>
+        <button id="init">INIT</button>
+        </br>
+        </br>
+        <button id="start">START</button>
+        <h2>local</h2>
+        <textarea id="localInfo" cols="80" rows="10"></textarea>
+
+        </br>
+
+        <h2>remote</h2>
+        <button id="listen">LISTEN</button>
+        <textarea id="remoteInfo" cols="80" rows="10"></textarea>
+        <button id="connect">CONNECT</button>
+
+        </br>
+        </br>
+        <div>
+          <textarea id="chat" cols="40" rows="1"></textarea>
+          <button id="send">SEND</button>
+        </div>        
+      </div>
     </div>
-
     
-    <p id="log">   </p>
+    <div class="split right">
+      <div class="centered">
+        <div style="width: 80%; float:right">
+          <textarea id="log" cols="80" rows="14"></textarea>
+        </div>
+      </div>
+    </div> 
 
-  </body>
+</body>
+
 </html>
