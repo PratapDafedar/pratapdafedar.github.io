@@ -22,7 +22,7 @@ function log(message) {
 let servers = {
   iceServers: [
     {
-      urls: "stun:openrelay.metered.ca:80",
+      urls: "stun:stun.l.google.com:19302",
     },
     {
       urls: "turn:openrelay.metered.ca:80",
@@ -30,15 +30,10 @@ let servers = {
       credential: "openrelayproject",
     },
     {
-      urls: "turn:openrelay.metered.ca:443",
+      urls: "turns:staticauth.openrelay.metered.ca:443",
       username: "openrelayproject",
       credential: "openrelayproject",
-    },
-    {
-      urls: "turn:openrelay.metered.ca:443?transport=tcp",
-      username: "openrelayproject",
-      credential: "openrelayproject",
-    },
+    }
   ],
   iceCandidatePoolSize: 10,
 };
